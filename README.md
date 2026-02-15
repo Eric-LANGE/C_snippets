@@ -18,13 +18,13 @@ void ft_rev_int_tab(char *tab, int size) {
 ## Dangers des VLA
 
 
-**Risque critique de Stack Overflow**
+**Risque critique de stack overflow**
 
 La Pile (Stack) est une zone mémoire très limitée (souvent autour de 8 Mo).
 Si la variable size est trop grande, le programme va tenter d'allouer cette mémoire sur la pile et crasher immédiatement (Stack Overflow).
 Contrairement à malloc(), le C ne vérifie pas si l'espace est suffisant avant de créer un VLA.
 
-**Problème de Portabilité**
+**Problème de portabilité**
 
 Bien qu'introduits en C99, les VLA ont été rétrogradés au statut de fonctionnalité optionnelle dans la norme C11.
 Certains compilateurs ne les supportent pas.
