@@ -74,6 +74,6 @@ La mémoire se divise en deux grandes zones d'allocation : la **Stack** et la **
 | **Vitesse d'accès** | Ultra-rapide | Plus lente (nécessite des pointeurs) |
 | **Taille disponible** | Très limitée (~8 Mo) | Immense (dépend de la RAM système) |
 | **Durée de vie** | Temporaire (fin de la fonction) | Persistante (jusqu'au `free()` ou fin du programme) |
-| **Risque principal** | Stack Overflow (dépassement) | Memory Leak (fuite de mémoire) |
+| **Risque principal** | Stack overflow (dépassement) | Memory leak (fuite de mémoire) |
 
 
