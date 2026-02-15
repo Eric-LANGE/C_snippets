@@ -1,4 +1,4 @@
-## 🚫 Pourquoi les Variable Length Arrays (VLA) sont à proscrire ?
+## Pourquoi les Variable Length Arrays (VLA) sont à proscrire ?
 
 En langage C, il existe historiquement deux façons d'allouer de la mémoire pour un tableau :
 
@@ -13,7 +13,7 @@ void ft_rev_int_tab(char *tab, int size) {
     char reverse[size]; // 'size' n'est pas une constante !
     // ...
 }
-
+```
 
 Dangers des VLA
 
