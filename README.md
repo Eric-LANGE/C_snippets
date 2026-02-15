@@ -5,7 +5,7 @@ En langage C, il existe historiquement deux façons d'allouer de la mémoire pou
 1. **Statique (sur la Stack)** : la taille est une constante connue à la compilation (`char tab[10];`).
 2. **Dynamique (sur la Heap)** : la taille est définie à l'exécution via `malloc()` (`char *tab = malloc(size);`).
 
-Un **VLA (Variable Length Array)**, introduit par la norme C99, est un hybride tentant mais dangereux : il permet de déclarer un tableau sur la Pile avec une taille qui n'est connue qu'à l'exécution.
+Un **VLA**, introduit par la norme C99, est un hybride tentant mais dangereux : il permet de déclarer un tableau sur la Stack avec une taille qui n'est connue qu'à l'exécution.
 
 ```c
 // MAUVAISE PRATIQUE : utilisation d'un VLA
