@@ -15,20 +15,22 @@ void ft_rev_int_tab(char *tab, int size) {
 }
 ```
 
-Dangers des VLA
+## Dangers des VLA
 
 
-Risque critique de Stack Overflow : la Pile (Stack) est une zone mémoire très limitée (souvent autour de 8 Mo).
+**Risque critique de Stack Overflow**
+La Pile (Stack) est une zone mémoire très limitée (souvent autour de 8 Mo).
 Si la variable size est trop grande, le programme va tenter d'allouer cette mémoire sur la pile et crasher immédiatement (Stack Overflow).
 Contrairement à malloc(), le C ne vérifie pas si l'espace est suffisant avant de créer un VLA.
 
-Problème de Portabilité : bien qu'introduits en C99, les VLA ont été rétrogradés au statut de fonctionnalité optionnelle dans la norme C11.
+**Problème de Portabilité**
+Bien qu'introduits en C99, les VLA ont été rétrogradés au statut de fonctionnalité optionnelle dans la norme C11.
 Certains compilateurs ne les supportent pas.
 Un code avec des VLA n'est donc pas portable à 100%.
 
 
 
-La Règle d'Or de la gestion mémoire
+## Règle d'or de la gestion mémoire
 
 
 - Taille connue à l'avance et petite ? -> utiliser un tableau statique classique (char tab[10];).
@@ -37,5 +39,5 @@ La Règle d'Or de la gestion mémoire
 
 
 
-Tip : penser ses algorithmes pour travailler in-place (sur place) en modifiant les données d'origine sans allocation supplémentaire (complexité spatiale O(1)).
+## Tip : penser ses algorithmes pour travailler in-place (sur place) en modifiant les données d'origine sans allocation supplémentaire (complexité spatiale O(1)).
 
