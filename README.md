@@ -79,7 +79,7 @@ La mémoire se divise en deux grandes zones d'allocation : la **Stack** et la **
 
 
 
-### L'Allocation en pratique
+### L'allocation mémoire en pratique
 
 
 ```c
@@ -93,6 +93,7 @@ void demo_memory_allocation(void)
     // ==========================================
     // La taille (5) est fixe et connue à la compilation. 
     // La destruction sera AUTOMATIQUE à la fin de cette fonction.
+
     int stack_array[5] = {1, 2, 3, 4, 5};
     
     printf("Valeur Stack : %d\n", stack_array[0]);
@@ -101,14 +102,17 @@ void demo_memory_allocation(void)
     // ==========================================
     // 2. ALLOCATION SUR LA HEAP
     // ==========================================
-    // Allocation DYNAMIQUE. Cette mémoire survivra à la fin de la fonction
-    // si elle n'est pas explicitement libérée (créant une fuite !).
+    // Allocation DYNAMIQUE.
+    // Cette mémoire survivra à la fin de la fonction si elle n'est pas explicitement libérée (créant une fuite !).
+
     int *heap_array;
     
     // Demande de l'espace pour 5 entiers
+
     heap_array = (int *)malloc(5 * sizeof(int));
     
     // RÈGLE D'OR : Toujours vérifier si le malloc a réussi
+
     if (heap_array == NULL)
     {
         return; // Échec de l'allocation, on quitte la fonction
@@ -118,5 +122,6 @@ void demo_memory_allocation(void)
     printf("Valeur Heap : %d\n", heap_array[0]);
 
     // RÈGLE D'OR : Destruction MANUELLE obligatoire
+
     free(heap_array);
 }
