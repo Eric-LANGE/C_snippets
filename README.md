@@ -1,4 +1,4 @@
-## Pourquoi les Variable Length Arrays (VLA) sont à proscrire ?
+## Pourquoi les VLA (Variable Length Arrays) sont à proscrire ?
 
 En langage C, il existe historiquement deux façons d'allouer de la mémoire pour un tableau :
 
