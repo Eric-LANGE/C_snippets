@@ -1,3 +1,35 @@
+## Comprendre la mémoire : Stack vs Heap
+
+La mémoire se divise en deux grandes zones d'allocation : la **Stack** et la **Heap**.
+
+
+
+### La Stack : le bloc-notes rapide
+
+* C'est ici que sont stockées toutes les variables locales déclarées dans des fonctions (ex: `int a = 5;`). Elle fonctionne selon le principe LIFO (*Last In, First Out*).
+* La gestion est **100% automatique**. Dès qu'une fonction se termine, toutes les variables qu'elle a créées sont instantanément détruites et la mémoire est libérée.
+* L'espace est très restreint (généralement quelques mégaoctets). Si trop de données (récursion infinie...), ça déborde : c'est le **stack overflow**.
+
+### La Heap : l'entrepôt géant
+
+* C'est ici que vous allouez de la mémoire manuellement quand vous ne connaissez pas la taille des données à l'avance, ou qu'elles sont très volumineuses.
+* L'espace est limité uniquement par la RAM de votre machine. Vos données persistent même après la fin de la fonction qui les a créées.
+* La gestion est **100% manuelle**. Vous devez explicitement demander de l'espace avec `malloc()` et, surtout, vous devez impérativement le rendre avec `free()` quand vous n'en avez plus besoin. Si vous oubliez, c'est la **fuite de mémoire (memory leak)**.
+
+### Comparatif rapide
+
+| Caractéristique | Stack | Heap |
+| :--- | :--- | :--- |
+| **Gestion** | Automatique (par le CPU / compilateur) | Manuelle (par le développeur via `malloc`/`free`) |
+| **Vitesse d'accès** | Ultra-rapide | Plus lente (nécessite des pointeurs) |
+| **Taille disponible** | Très limitée (~8 Mo) | Immense (dépend de la RAM système) |
+| **Durée de vie** | Temporaire (fin de la fonction) | Persistante (jusqu'au `free()` ou fin du programme) |
+| **Risque principal** | Stack Overflow (dépassement) | Memory Leak (fuite de mémoire) |
+
+
+
+
+
 ## Pourquoi les Variable Length Arrays (VLA) sont à proscrire ?
 
 En langage C, il existe historiquement deux façons d'allouer de la mémoire pour un tableau :
