@@ -8,7 +8,8 @@ En langage C, il existe historiquement deux façons d'allouer de la mémoire pou
 Un **VLA (Variable Length Array)**, introduit par la norme C99, est un hybride tentant mais dangereux : il permet de déclarer un tableau sur la Pile avec une taille qui n'est connue qu'à l'exécution.
 
 ```c
-// ❌ MAUVAISE PRATIQUE : Utilisation d'un VLA
+// MAUVAISE PRATIQUE : utilisation d'un VLA
+
 void ft_rev_int_tab(char *tab, int size) {
     char reverse[size]; // 'size' n'est pas une constante !
     // ...
